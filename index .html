@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLTEX X1 - Smart Safety Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div>
+            <h1>VOLTEX <span>X1</span></h1>
+            <p>SMART ELECTRIC VEHICLE SYSTEM</p>
+        </div>
+        <div class="system-status">
+            <span class="live-dot"></span>
+            SYSTEM ONLINE
+        </div>
+    </header>
+
+    <main class="dashboard">
+
+        <section class="top-grid">
+
+            <div class="card vehicle-card">
+                <div class="card-heading">
+                    <h2>Vehicle Overview</h2>
+                    <span class="small-label">LIVE STATUS</span>
+                </div>
+
+                <div class="car-visual">
+                    <div class="car-top">
+                        <div class="car-window"></div>
+                        <div class="car-roof"></div>
+                        <div class="car-body"></div>
+                        <div class="wheel wheel-left"></div>
+                        <div class="wheel wheel-right"></div>
+                    </div>
+                    <div class="car-caption">VOLTEX X1 ELECTRIC</div>
+                </div>
+
+                <div class="vehicle-info">
+                    <div>
+                        <span>Speed</span>
+                        <strong id="speedValue">0 km/h</strong>
+                    </div>
+                    <div>
+                        <span>Driving Mode</span>
+                        <strong id="modeValue">ECO</strong>
+                    </div>
+                    <div>
+                        <span>Range</span>
+                        <strong id="rangeValue">320 km</strong>
+                    </div>
+                </div>
+
+                <label class="field-label" for="speedControl">
+                    Simulation Speed
+                </label>
+                <input type="range" id="speedControl"
+                       min="0" max="180" value="0">
+            </div>
+
+            <div class="card battery-card">
+                <div class="card-heading">
+                    <h2>Battery System</h2>
+                    <span class="status-pill safe" id="batteryStatus">NORMAL</span>
+                </div>
+
+                <div class="battery-number" id="batteryValue">85%</div>
+                <div class="battery-track">
+                    <div id="batteryBar"></div>
+                </div>
+
+                <p class="muted">Estimated remaining energy</p>
+
+                <div class="battery-details">
+                    <div>
+                        <span>Battery Temperature</span>
+                        <strong id="temperatureValue">32°C</strong>
+                    </div>
+                    <div>
+                        <span>Energy Consumption</span>
+                        <strong id="energyValue">0 kWh</strong>
+                    </div>
+                </div>
+
+                <label class="field-label" for="temperatureControl">
+                    Temperature Simulation
+                </label>
+                <input type="range" id="temperatureControl"
+                       min="15" max="65" value="32">
+
+                <button class="primary-btn" id="chargeBtn">
+                    START CHARGING
+                </button>
+                <p class="muted" id="chargingStatus">Charger disconnected</p>
+            </div>
+
+        </section>
+
+        <section class="card safety-card">
+            <div class="card-heading">
+                <div>
+                    <h2>Advanced Safety System</h2>
+                    <p class="muted">Vehicle safety monitoring simulation</p>
+                </div>
+                <span class="status-pill safe" id="overallStatus">
+                    ALL SYSTEMS NORMAL
+                </span>
+            </div>
+
+            <div class="safety-grid">
+
+                <div class="safety-item">
+                    <div class="feature-icon">♧</div>
+                    <h3>Seat Belt</h3>
+                    <p id="seatStatus">Fastened</p>
+                    <label class="switch">
+                        <input type="checkbox" id="seatToggle" checked>
+                        <span class="switch-ui"></span>
+                    </label>
+                </div>
+
+                <div class="safety-item">
+                    <div class="feature-icon">▣</div>
+                    <h3>Door Status</h3>
+                    <p id="doorStatus">All doors closed</p>
+                    <label class="switch">
+                        <input type="checkbox" id="doorToggle" checked>
+                        <span class="switch-ui"></span>
+                    </label>
+                </div>
+
+                <div class="safety-item">
+                    <div class="feature-icon">◉</div>
+                    <h3>Blind Spot Alert</h3>
+                    <p id="blindStatus">No vehicle detected</p>
+                    <label class="switch">
+                        <input type="checkbox" id="blindToggle">
+                        <span class="switch-ui"></span>
+                    </label>
+                </div>
+
+                <div class="safety-item">
+                    <div class="feature-icon">◈</div>
+                    <h3>Tyre Pressure</h3>
+                    <p id="tyreStatus">Normal · 34 PSI</p>
+                    <label class="field-label" for="tyreControl">
+                        Pressure simulation
+                    </label>
+                    <input type="range" id="tyreControl"
+                           min="15" max="45" value="34">
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bottom-grid">
+
+            <div class="card parking-card">
+                <div class="card-heading">
+                    <h2>Parking Assist</h2>
+                    <span class="status-pill safe" id="parkingStatus">
+                        CLEAR
+                    </span>
+                </div>
+
+                <div class="parking-visual">
+                    <div class="parking-lines"></div>
+                    <div class="parking-car">🚘</div>
+                    <div class="parking-object" id="parkingObject">●</div>
+                </div>
+
+                <p class="distance-text">
+                    Object Distance:
+                    <strong id="distanceValue">150 cm</strong>
+                </p>
+
+                <label class="field-label" for="distanceControl">
+                    Change simulated distance
+                </label>
+                <input type="range" id="distanceControl"
+                       min="10" max="150" value="150">
+            </div>
+
+            <div class="card camera-card">
+                <div class="card-heading">
+                    <h2>Reverse Camera</h2>
+                    <span class="status-pill safe" id="cameraStatus">
+                        OFF
+                    </span>
+                </div>
+
+                <div class="camera-screen" id="cameraScreen">
+                    <div class="camera-label">REAR CAMERA SIMULATION</div>
+                    <div class="camera-road">
+                        <div class="guide-line left-guide"></div>
+                        <div class="guide-line right-guide"></div>
+                        <div class="camera-obstacle" id="cameraObstacle"></div>
+                    </div>
+                    <div class="camera-message" id="cameraMessage">
+                        Camera is turned off
+                    </div>
+                </div>
+
+                <button class="secondary-btn" id="cameraBtn">
+                    OPEN REVERSE CAMERA
+                </button>
+            </div>
+
+            <div class="card alerts-card">
+                <div class="card-heading">
+                    <h2>Safety Alerts</h2>
+                    <span class="small-label">LIVE</span>
+                </div>
+
+                <div id="alertList" class="alert-list">
+                    <p class="no-alert">✓ No active alerts</p>
+                </div>
+
+                <button class="emergency-btn" id="emergencyBtn">
+                    EMERGENCY ALERT
+                </button>
+                <p class="muted emergency-note">
+                    Demo only. Does not contact emergency services.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="card settings-card">
+            <div class="card-heading">
+                <h2>Vehicle Settings</h2>
+            </div>
+
+            <div class="settings-row">
+                <label for="modeControl">Driving Mode</label>
+                <select id="modeControl">
+                    <option value="ECO">Eco Mode</option>
+                    <option value="NORMAL">Normal Mode</option>
+                    <option value="SPORT">Sport Mode</option>
+                </select>
+            </div>
+
+            <div class="settings-row">
+                <label for="acControl">Cabin AC Temperature</label>
+                <strong id="acValue">22°C</strong>
+            </div>
+            <input type="range" id="acControl"
+                   min="16" max="30" value="22">
+
+            <div class="settings-row">
+                <label for="lightControl">Interior Ambient Light</label>
+                <input type="color" id="lightControl" value="#00d9ff">
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        VOLTEX X1 · ELECTRIC VEHICLE DASHBOARD
+        <p>All vehicle and safety functions on this page are simulations.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
